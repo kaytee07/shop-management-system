@@ -1,0 +1,3 @@
+#ELECTRICAL APPLIANCE SHOP MANAGEMENT SYSTEM
+The shop management system will be responsible for taking stocks, updating stocks, selling electrical appliances, displaying history of every transaction that takes place. updating stock inventory after every transaction. 
+The shop management will assign roles to every employee to determine the boundaries of their authorization. The admin has full access to every aspect of our managemnt system. and is the only person capable of creating account for other employees.
