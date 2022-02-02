@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.signin{
+  height: 100vh;
+}
+
+.m-t{
+  margin-top: 2em;
+}
+
+.input-h{
+  height: 30px;
+}
+
+.form-align{
+  display: block;
+  text-align: initial;
+}
