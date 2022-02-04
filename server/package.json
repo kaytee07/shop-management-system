@@ -9,7 +9,14 @@
   "author": "\"\"\u001b[DKofi Taylor\"\u001b[C\u001b[D",
   "license": "ISC",
   "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
-    "mongoose": "^6.1.10"
+    "express-session": "^1.17.2",
+    "flash": "^1.1.0",
+    "mongoose": "^6.1.10",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
   }
 }
