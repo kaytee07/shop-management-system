@@ -9,7 +9,9 @@
   "author": "\"\"\u001b[DKofi Taylor\"\u001b[C\u001b[D",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-session": "^1.17.2",

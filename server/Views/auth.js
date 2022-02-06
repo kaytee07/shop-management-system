@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 const passport = require("passport");
-const LocalStrategy = require("passport-local");
 const User = require("../models/user");
 const catchAsync = require("../utils/asyncErrors");
 const AppError = require("../utils/AppError");
@@ -37,16 +36,15 @@ router.route("/signup")
          res.json({name:newUser.name, email:newUser.email, employeeType:newUser.password})
      }))
 
-router.route("/signin")
-      .get((req, res)=>{
-          res.render('/')
-      })
 
 router.route("/signin")
-.post(passport.authenticate('local'),(req, res, next) => {
-  console.log("welcome")
+.post(passport.authenticate('local', {failWithError:true, failureMessage:"invalid username and password"}),catchAsync(async(req, res, next) => {
+  const {email} = req.body
+  const user = await User.findOne({email:email})
+  req.session.email = email
+  req.session.employeeType = user.employeeType
   res.json({message: "Welcome"})  
-  res.render("/")
-});
+  
+}));
 
 module.exports = router

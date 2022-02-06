@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const session = require('express-session');
 const MongoStore = require("connect-mongo");
+const cookieParser = require('cookie-parser')
 require("dotenv").config();
 const cors = require("cors");
 const mongoose = require('mongoose');
@@ -11,6 +12,7 @@ const validPassword = require('./utils/passwordutils').validPassword;
 const LocalStrategy = require('passport-local');
 const User = require("./models/user");
 const authRoutes = require('./Views/auth');
+const mainRoutes = require('./Views/home')
 const AppError = require("./utils/AppError");
 
 
@@ -30,6 +32,7 @@ db.once("open", ()=>{
 const sessionStore = MongoStore.create({mongoUrl: process.env.DB_URL})
 
 app.use(express.urlencoded());
+app.use(cookieParser("the-man"))
 app.use(session({
     secret:process.env.EXPRESS_SECRET,
     resave:false,
@@ -67,14 +70,11 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/auth", authRoutes);
+app.use("/", mainRoutes)
 
 
 
-app.use((req, res, next)=>{
-    console.log(req.session);
-    console.log(req.user);
-    next()
-})
+
 
 app.use((err, req, res, next)=>{
     const {message ="Not found", status=404} = err;
