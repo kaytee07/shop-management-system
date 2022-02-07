@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.signin{
-  height: 100vh;
-}
-
 .m-t{
   margin-top: 2em;
 }
@@ -14,7 +10,64 @@
   height: 30px;
 }
 
+.card-w{
+  width: 13rem;
+  margin: 0 20px;
+}
+
 .form-align{
   display: block;
   text-align: initial;
+}
+
+.Home{
+  height: 100vh;
+}
+
+.heading{
+  margin: 40px 0px;
+}
+
+.ul-p{
+  padding-left: 0px;
+}
+
+.listgrid{
+  display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+}
+
+.wrapup{
+  display: grid;
+  grid-template-columns: repeat();
+}
+
+.mb-40{
+  margin-bottom: 40px;
+}
+
+.center-main{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.navb{
+  place-self: end;
+  
+ }
+
+ .ta-l{
+   text-align: left;
+ }
+
+ .inventory-w{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-gap: 20px;
+   width: 95%;
+   margin: 40px auto;
+ }
+
+@media only screen and (max-device-width: 480px){
+ 
 }

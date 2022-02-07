@@ -12,7 +12,8 @@ const validPassword = require('./utils/passwordutils').validPassword;
 const LocalStrategy = require('passport-local');
 const User = require("./models/user");
 const authRoutes = require('./Views/auth');
-const mainRoutes = require('./Views/home')
+const mainRoutes = require('./Views/home');
+const productRoutes = require("./Views/product")
 const AppError = require("./utils/AppError");
 
 
@@ -70,7 +71,9 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser());
 
 app.use("/auth", authRoutes);
-app.use("/", mainRoutes)
+app.use("/product", productRoutes);
+app.use("/sale", productRoutes);
+app.use("/", mainRoutes);
 
 
 

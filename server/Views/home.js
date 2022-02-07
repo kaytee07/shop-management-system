@@ -51,7 +51,9 @@ router.route("/createproduct").post(
          { new: true }
        );
         console.log(findBrand, product);
-   }else{
+   }else if(await Product.findOne({name:name})){
+          return res.json({message:"item already exist"})
+   } else{
          const newBrand = new Brand({
            name: brand
          });

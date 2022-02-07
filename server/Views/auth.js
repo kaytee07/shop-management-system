@@ -41,9 +41,10 @@ router.route("/signin")
 .post(passport.authenticate('local', {failWithError:true, failureMessage:"invalid username and password"}),catchAsync(async(req, res, next) => {
   const {email} = req.body
   const user = await User.findOne({email:email})
-  req.session.email = email
-  req.session.employeeType = user.employeeType
-  res.json({message: "Welcome"})  
+  req.session.email = email;
+  req.session.employeeType = user.employeeType;
+  req.session.cart = [];
+  res.json({message: "Welcome"})  ;
   
 }));
 

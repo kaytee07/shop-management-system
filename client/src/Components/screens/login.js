@@ -1,11 +1,15 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect, useContext} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { userContext } from "../../App";
 
 
 function Login(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  let navigate = useNavigate();
+  const {state, dispatch} = useContext(userContext);
+
   const signIn = () => {
     fetch("auth/signin", {
       method: "POST",
@@ -15,10 +19,21 @@ function Login(){
       }),
     })
     .then(res=> res.json())
-    .then(data=> setMessage(data))
+    .then(data=> {
+      localStorage.setItem("user", data.message);
+      dispatch({type:"USER", payload: data.message})
+      setMessage(data.message)
+    })
   };
 
-  
+ useEffect(()=>{
+   if(message){
+     navigate("/")
+   }
+
+ })
+
+
 
     return (
       <div className="signin d-flex justify-content-center">
