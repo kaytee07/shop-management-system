@@ -15,9 +15,14 @@ const logout = () => {
 const renderList = () => {
   if(state){
      return [
-       <li key={1} className="nav-item">
+       <li key={6} className="nav-item">
          <Link className="nav-link active" aria-current="page" to="/">
            home
+         </Link>
+       </li>,
+       <li key={1} className="nav-item">
+         <Link className="nav-link active" aria-current="page" to="/cart">
+           cart
          </Link>
        </li>,
        <button

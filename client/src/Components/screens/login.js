@@ -20,8 +20,8 @@ function Login(){
     })
     .then(res=> res.json())
     .then(data=> {
-      localStorage.setItem("user", data.message);
-      dispatch({type:"USER", payload: data.message})
+      localStorage.setItem("user", data.user);
+      dispatch({type:"USER", payload: data.user})
       setMessage(data.message)
     })
   };

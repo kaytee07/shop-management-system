@@ -11,6 +11,7 @@ import Sell from './Components/screens/sell';
 import Inventory from './Components/screens/Inventory';
 import Product from './Components/screens/products';
 import SellItems from './Components/screens/sellItems';
+import CartItems from './Components/screens/cart';
 export const userContext = createContext();
 
 function App() {
@@ -20,6 +21,7 @@ const navigate = useNavigate();
   
 useEffect(() => {
   const user = localStorage.getItem("user");
+  console.log(user)
   if(user){
      dispatch({ type: "USER", payload: user }); 
   }else{
@@ -40,7 +42,8 @@ useEffect(() => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/product/:name" element={<Product />} />
-          <Route path="/" element={<SellItems />} />
+          <Route path="/sale/:name" element={<SellItems />} />
+          <Route path="/cart" element={<CartItems />} />
         </Routes>
       </Navbar>
     </userContext.Provider>

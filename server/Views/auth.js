@@ -43,8 +43,10 @@ router.route("/signin")
   const user = await User.findOne({email:email})
   req.session.email = email;
   req.session.employeeType = user.employeeType;
+  req.session.isAdded = [];
+  req.session.checkOut = [];
   req.session.cart = [];
-  res.json({message: "Welcome"})  ;
+  res.json({message: "Welcome", user:user.username})  ;
   
 }));
 

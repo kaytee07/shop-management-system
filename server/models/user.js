@@ -10,7 +10,11 @@ const userSchema = new Schema({
     employeeType:{
         type:String,
         required:true
-    }
+    },
+    addToCart:[{
+        type:Schema.Types.ObjectId,
+        ref:'Product'
+    }]
 })
 
 userSchema.plugin(passportLocalMongoose);

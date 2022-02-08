@@ -14,6 +14,7 @@ const User = require("./models/user");
 const authRoutes = require('./Views/auth');
 const mainRoutes = require('./Views/home');
 const productRoutes = require("./Views/product")
+const sellRoutes = require('./Views/sell')
 const AppError = require("./utils/AppError");
 
 
@@ -72,7 +73,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/auth", authRoutes);
 app.use("/product", productRoutes);
-app.use("/sale", productRoutes);
+app.use("/sell", sellRoutes);
 app.use("/", mainRoutes);
 
 

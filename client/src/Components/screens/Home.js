@@ -1,10 +1,12 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect, useState, useContext} from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../App";
 
 function Home(){
 const [name,setName] = useState("")
 const [employeeType, setEmployeeType] = useState("");
-const [email,setEmail] = useState("")
+const [email,setEmail] = useState("");
+const {state, dispatch} = useContext(userContext);
 
 useEffect(()=>{
 fetch('/home',{
@@ -31,7 +33,7 @@ const renderHome = () =>{
         <div className="card card-w mb-40 col-md-4">
           <div className="card-body">
             <h5 className="card-title">Inventory</h5>
-            <Link to="#" className="btn btn-primary">
+            <Link to="/inventory" className="btn btn-primary">
               Inventory
             </Link>
           </div>
@@ -86,7 +88,7 @@ const renderHome = () =>{
         <div className="card card-w mb-40 col-md-4">
           <div className="card-body">
             <h5 className="card-title">Inventory</h5>
-            <Link to="#" className="btn btn-primary">
+            <Link to="/inventory" className="btn btn-primary">
               Inventory
             </Link>
           </div>
@@ -95,7 +97,7 @@ const renderHome = () =>{
           <div className="card-body">
             <h5 className="card-title">Add Stock Items</h5>
 
-            <Link to="#" className="btn btn-primary">
+            <Link to="/addproduct" className="btn btn-primary">
               Add Stock Items
             </Link>
           </div>
@@ -107,7 +109,7 @@ const renderHome = () =>{
               History
             </Link>
           </div>
-        </div>
+        </div>,
       ];
     }
 }
